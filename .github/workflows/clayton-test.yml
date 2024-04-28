@@ -10,6 +10,7 @@ on:
     branches: [ "master" ]
 
 jobs:
+  # run the build
   build:
 
     runs-on: ubuntu-latest
@@ -29,3 +30,34 @@ jobs:
     - run: npm install
     - run: npm run build
     # TODO: - run: npm test 
+
+  # deploy to web app
+  deploy:
+      runs-on: windows-latest
+      needs: build
+      environment:
+        name: 'Production'
+        url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+      permissions:
+        id-token: write #This is required for requesting the JWT
+  
+      steps:
+        - name: Download artifact from build job
+          uses: actions/download-artifact@v3
+          with:
+            name: .net-app
+        
+        - name: Login to Azure
+          uses: azure/login@v1
+          with:
+            client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_ABEF4D577C4F48F7AD9FA7EB909AA7DF }}
+            tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_01F4C5A740AD4FE7A474B612969045F9 }}
+            subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_444240055589425A98E405BC85AEFB13 }}
+  
+        - name: Deploy to Azure Web App
+          id: deploy-to-webapp
+          uses: azure/webapps-deploy@v2
+          with:
+            app-name: 'saftware-ui'
+            slot-name: 'Production'
+            package: .
