@@ -19,6 +19,7 @@ jobs:
       - name: Set up Node.js version
         uses: actions/setup-node@v3
         with:
+          # note: it is actions/setup-node@v3 that is actually using node v20.x (20.12.2)
           node-version: '21.6.2'
 
       - name: npm install, build, and test
