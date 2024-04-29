@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Set up Node.js version
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4.0.2
         with:
           # note: it is actions/setup-node@v3 that is actually using node v20.x (20.12.2)
           node-version: '21.6.2'
@@ -29,7 +29,7 @@ jobs:
           npm run test --if-present
       
       - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4.3.3
         with:
           name: node-app
           path: .
@@ -45,12 +45,12 @@ jobs:
 
     steps:
       - name: Download artifact from build job
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v4.1.7
         with:
           name: node-app
       
       - name: Login to Azure
-        uses: azure/login@v1
+        uses: azure/login@v2.1.0
         with:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_2F4EE4BA58D14305BCDD53E85F60462C }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_D6E24BB2FD8341AA9989D7E40F895484 }}
