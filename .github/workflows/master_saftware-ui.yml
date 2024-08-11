@@ -78,5 +78,5 @@ jobs:
         with:
           app-name: 'saftware-ui'
           slot-name: 'Production'
-          package: './dist'
+          package: './release/saf-UI/dist'
           
