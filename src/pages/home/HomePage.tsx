@@ -7,10 +7,12 @@ import { Button } from "react-bootstrap";
 const HomePage = () => {
     const [weatherData, setWeatherData] = useState<any>(null);
 
+    const apiUrl = import.meta.env.VITE_API_URL
+    console.log('apiUrl', apiUrl);
     // test api fetch function
     const fetchWeather = async() => {
-        //const response = await fetch('https://localhost:7069/');
-        const response = await fetch('https://saftware-api.azurewebsites.net/weather');
+        const response = await fetch(`${apiUrl}/weather`);
+        //const response = await fetch('https://saftware-api.azurewebsites.net/weather');
         const data = await response.json();
         console.log('data:', data);
         setWeatherData(data);
@@ -35,7 +37,10 @@ const HomePage = () => {
             </Button>
             <Button
                 variant="dark"
-                onClick={() => setWeatherData(null)}>
+                onClick={() => {
+                    console.log()
+                    setWeatherData(null)
+                }}>
                 Clear Data
             </Button>
             {weatherData && weatherData.map((item: any) => {
