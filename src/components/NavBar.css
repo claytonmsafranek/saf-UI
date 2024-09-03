@@ -1,0 +1,8 @@
+.navbar-container {
+    background-color: #2b2a2a;
+    padding: .5em;
+    box-shadow: 1px 5px 5px rgb(126, 123, 123);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
