@@ -1,8 +1,20 @@
 .navbar-container {
     background-color: #2b2a2a;
+    color: white;
     padding: .5em;
-    box-shadow: 1px 5px 5px rgb(126, 123, 123);
+    /* box-shadow: 1px 5px 5px rgb(126, 123, 123); */
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 60px;
 }
+
+.format-link {
+  color: white;
+  text-decoration: none;
+}
+
+.format-link:hover {
+  color: #886565;
+}
+
