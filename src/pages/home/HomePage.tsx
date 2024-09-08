@@ -3,6 +3,7 @@
 import NavBar from "../../components/NavBar";
 import './HomePage.css'
 // import Canvas from "../../components/Canvas";
+import arrow from "../../assets/down-arrow-2.png";
 
 const HomePage = () => {
     // const [weatherData, setWeatherData] = useState<any>(null);
@@ -29,7 +30,7 @@ const HomePage = () => {
               </div>
 
               {/* <button className="btn outline-button"> */}
-                <img src={import.meta.env.VITE_UI_URL + "/../../public/down-arrow-2.png"}
+                <img src={arrow}
                   className="outline-button" 
                   width={100} 
                   height={100} 
