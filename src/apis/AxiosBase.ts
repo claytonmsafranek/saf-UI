@@ -1,6 +1,6 @@
-import axios from "axios";
+// import axios from "axios";
 
-const http = axios.create({
-    baseURL: 'https://localhost:7069/'
-})
+// const http = axios.create({
+//     baseURL: 'https://localhost:7069/'
+// })
 

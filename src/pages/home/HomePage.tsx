@@ -1,21 +1,21 @@
-import { useState } from "react";
-import { Button } from "react-bootstrap";
+// import { useState } from "react";
+// import { Button } from "react-bootstrap";
 import NavBar from "../../components/NavBar";
 import './HomePage.css'
-import Canvas from "../../components/Canvas";
+// import Canvas from "../../components/Canvas";
 
 const HomePage = () => {
-    const [weatherData, setWeatherData] = useState<any>(null);
+    // const [weatherData, setWeatherData] = useState<any>(null);
 
-    const apiUrl = import.meta.env.VITE_API_URL
-    // test api fetch function
-    const fetchWeather = async() => {
-        const response = await fetch(`${apiUrl}/weather`);
-        const data = await response.json();
-        console.log('data:', data);
-        setWeatherData(data);
-        return data;
-    }
+    // const apiUrl = import.meta.env.VITE_API_URL
+    // // test api fetch function
+    // const fetchWeather = async() => {
+    //     const response = await fetch(`${apiUrl}/weather`);
+    //     const data = await response.json();
+    //     console.log('data:', data);
+    //     setWeatherData(data);
+    //     return data;
+    // }
     
     return(
       <div>
