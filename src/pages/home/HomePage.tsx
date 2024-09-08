@@ -29,7 +29,7 @@ const HomePage = () => {
               </div>
 
               {/* <button className="btn outline-button"> */}
-                <img src="../../public/down-arrow-2.png"
+                <img src={import.meta.env.VITE_UI_URL + "/../../public/down-arrow-2.png"}
                   className="outline-button" 
                   width={100} 
                   height={100} 
