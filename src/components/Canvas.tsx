@@ -8,8 +8,8 @@ const Canvas = () => {
     if (canvas) {
       const context = canvas.getContext('2d');
       // setup canvas dimensions
-      var width = window.innerWidth;
-      var height = window.innerHeight;
+      const width = window.innerWidth;
+      const height = window.innerHeight;
       canvas.width = width;
       canvas.height = height;
       if (context) {

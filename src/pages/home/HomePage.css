@@ -12,12 +12,24 @@
 }
 
 .center-text {
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   justify-content: center;
   /* height: 100vh; this makes the arrow go all the way to the bottom of the screen */
   text-align: center;
 }
+
+.profile-pic-window {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-image: url('./../../assets/funny-face.jpg'); /* or use headShot via inline style */
+  background-size: cover;     /* fills the circle */
+  background-position: center; /* centers your face */
+  background-repeat: no-repeat;
+  overflow: hidden;           /* hides anything outside the circle */
+}
+
 
 h1 {
   font-size: 60px;
