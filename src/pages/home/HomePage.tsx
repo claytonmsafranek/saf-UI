@@ -22,7 +22,7 @@ const HomePage = () => {
             <div className="home-container">
               <div className="center-text">
                 <img src={headShot}
-                  height={300}
+                  height={250}
                   width={250}
                   className="rounded-circle border border-5 border-dark profile-pic"
                 />
