@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Brick Mover</title>
+  <link href="/src/galaga/style.css" rel="stylesheet">
+</head>
+<body>
+  <canvas id="canv"></canvas>
+
+  <script type="module">
+    "use strict";
+    import { getCanvas, getContext } from "/src/galaga/engine/Utilities.js";
+    import Time    from "/src/galaga/engine/Time.js";
+    import Input   from "/src/galaga/engine/Input.js";
+    import Game    from "/src/galaga/engine/Game.js";
+
+    import MainScene        from "/src/galaga/game/MainScene.js";
+    import StartScene       from "/src/galaga/game/StartScene.js";
+    import EndScene         from "/src/galaga/game/EndScene.js";
+    import LeaderboardScene from "/src/galaga/game/LeaderboardScene.js";
+
+    // setup scenes
+    const scene            = new MainScene();
+    const startScene       = new StartScene();
+    const endScene         = new EndScene();
+    const leaderboardScene = new LeaderboardScene();
+
+    Game.scenes.push(startScene, scene, endScene, leaderboardScene);
+    Game.changeScene(0);
+
+    // setup the canvas
+    const canvas = getCanvas();
+    const ctx    = getContext(canvas);
+    Input.attach(document);
+
+    function tick() {
+      Game.updateScene();
+
+      // timings
+      const timeToShootBullet = 8000;
+      if (Time.timePassedBullets >= timeToShootBullet) {
+        scene.makeBullet();
+        Time.timePassedBullets = 0;
+      }
+      const timeToSpawnEnemy = 15000;
+      if (Time.timePassedEnemies >= timeToSpawnEnemy) {
+        scene.spawnEnemy();
+        Time.timePassedEnemies = 0;
+      }
+
+      Game.scene().update(ctx);
+      Game.scene().draw(ctx);
+      Game.scene().remove();
+
+      Time.timePassedEnemies += Time.millisecondsBetweenEnemies;
+      Time.timePassed        += Time.secondsBetweenFrame;
+      Time.timePassedBullets += Time.millisecondsBetweenBullets;
+      Time.timePassedScore   += Time.millisecondsBetweenScore;
+    }
+
+    setInterval(tick, Time.millisecondsBetweenFrames);
+  </script>
+</body>
+</html>
