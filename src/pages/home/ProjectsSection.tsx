@@ -3,6 +3,7 @@ import fanImg from "../../assets/fan.jpg";
 import hydroImg from "../../assets/flower.png";
 import printerImg from "../../assets/printer.jpg";
 import galagaImg from "../../assets/galaga.png";
+import moneyBagImg from "../../assets/money-bag.png";
 
 const PROJECTS = [
   {
@@ -31,6 +32,13 @@ const PROJECTS = [
     title: "Galaga Game",
     summary: "A classic arcade game remake entirely in JavaScript.",
     imgSrc: galagaImg,
+    externalUrl: ""
+  },
+  {
+    slug: "uncle-pete",
+    title: "Uncle Pete's Savings",
+    summary: "A savings tracker for courtesy of Uncle Pete. Coming soon!",
+    imgSrc: moneyBagImg,
     externalUrl: ""
   }
 ];
