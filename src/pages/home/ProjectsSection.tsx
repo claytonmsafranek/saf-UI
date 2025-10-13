@@ -28,8 +28,8 @@ const PROJECTS = [
   },
   {
     slug: "galaga-game",
-    title: "3D Prints",
-    summary: "Fun and functional designs I've printed.",
+    title: "Galaga Game",
+    summary: "A classic arcade game remake entirely in JavaScript.",
     imgSrc: galagaImg,
     externalUrl: ""
   }
