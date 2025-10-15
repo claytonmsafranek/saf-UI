@@ -8,6 +8,7 @@ import PrefabTextSmall from "../engine/PrefabTextSmall.js"
 import PrefabTextLarge from "../engine/PrefabTextLarge.js"
 import { checkLeaderboard, getLeaderboard, postPlayerScore } from "../engine/LeaderboardUtils.js"
 import ScoreGameObject from "./ScoreGameObject.js"
+import ScoreUpdateComponent from "./ScoreUpdateComponent.js"
 
 
 
@@ -29,7 +30,7 @@ class EndSceneGameObject extends GameObject {
         //display the player's score
         //this code reaches into the MainScene to look for the ScoreGameObject
         let scoreObject = Game.findInOtherScene(ScoreGameObject, 1)
-        let playerScore = scoreObject.getComponent("ScoreUpdateComponent")
+        let playerScore = scoreObject.getComponent(ScoreUpdateComponent)
         this.addComponent(new PrefabTextSmall("Game Over!", (canvas.width / 2) - 100, canvas.height / 2 + 50, "Score: " + playerScore.score))
         this.addComponent(new EndSceneUpdateComponent(this))
 

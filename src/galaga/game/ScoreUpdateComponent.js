@@ -1,4 +1,5 @@
 import Component from "../engine/Component.js"
+import Text from "../engine/Text.js"
 import Time from "../engine/Time.js"
 
 class ScoreUpdateComponent extends Component {
@@ -8,7 +9,7 @@ class ScoreUpdateComponent extends Component {
     }
 
     update() {
-        let text = this.parent.getComponent("Text")
+        let text = this.parent.getComponent(Text)
         text.text = "Score: " + this.score
 
         let timeToUpdateScore = 2000

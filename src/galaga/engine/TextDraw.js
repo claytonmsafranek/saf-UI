@@ -1,4 +1,5 @@
 import Component from "./Component.js"
+import Text from "./Text.js"
 
 class TextDraw extends Component {
     constructor(parent, fillStyle, strokeStyle) {
@@ -8,7 +9,7 @@ class TextDraw extends Component {
     }
 
     draw(ctx) {
-        let text = this.parent.getComponent("Text")
+        let text = this.parent.getComponent(Text)
         ctx.fillStyle = this.fillStyle
         ctx.strokeStyle = this.strokeStyle
         ctx.font = text.font
