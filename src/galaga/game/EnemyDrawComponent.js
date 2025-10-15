@@ -8,7 +8,7 @@ class EnemyDrawComponent extends Component {
     }
 
     draw(ctx) {
-        let updateComponent = this.parent.components.find(c=>c instanceof EnemyUpdateComponent)
+        let updateComponent = this.parent.getComponent(EnemyUpdateComponent)
 
         ctx.fillStyle = "red"
         ctx.strokeStyle = "red"

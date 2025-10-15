@@ -14,8 +14,8 @@ class PrefabTextSmall extends GameObject {
     }
 
     start() {
-        this.components.push(new Text(this, this.x, this.y, this.text, this.font))
-        this.components.push(new TextDraw(this, "red", "red"))
+        this.addComponent(new Text(this, this.x, this.y, this.text, this.font))
+        this.addComponent(new TextDraw(this, "red", "red"))
     }
 
 }

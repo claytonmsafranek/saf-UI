@@ -7,8 +7,8 @@ class EnemyGameObject extends GameObject {
     constructor(x, y, w, h, velocityY) {
         super()
 
-        this.components.push(new EnemyUpdateComponent(this, x, y, w, h, velocityY))
-        this.components.push(new EnemyDrawComponent(this))
+        this.addComponent(new EnemyUpdateComponent(this, x, y, w, h, velocityY))
+        this.addComponent(new EnemyDrawComponent(this))
     }
 
     update() {

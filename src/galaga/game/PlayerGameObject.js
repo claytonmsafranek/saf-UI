@@ -7,8 +7,8 @@ class PlayerGameObject extends GameObject {
     constructor(x, y, w, h) {
         super()
 
-        this.components.push(new PlayerUpdateComponent(parent, x, y, w, h))
-        this.components.push(new PlayerDrawComponent(this))
+        this.addComponent(new PlayerUpdateComponent(parent, x, y, w, h))
+        this.addComponent(new PlayerDrawComponent(this))
     }
 
     update() {

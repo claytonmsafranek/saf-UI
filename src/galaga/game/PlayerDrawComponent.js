@@ -9,7 +9,7 @@ class PlayerDrawComponent extends Component {
     }
 
     draw(ctx) {
-        let updateComponent = this.parent.components.find(c=>c instanceof PlayerUpdateComponent)
+        let updateComponent = this.parent.getComponent(PlayerUpdateComponent)
 
         ctx.fillStyle = "black"
         ctx.strokeStyle = "black"

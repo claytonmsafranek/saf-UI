@@ -21,20 +21,20 @@ class LeaderboardSceneGameObject extends GameObject {
     async start() {
         let canvas = getCanvas()
         let ctx = getContext(canvas)
-        this.components.push(new LeaderboardSceneUpdateComponent(this))
+        this.addComponent(new LeaderboardSceneUpdateComponent(this))
 
         //getLeaderboard calls game API to retrieve the top 5 players in descending order
         let leaderboard = await getLeaderboard()
         console.log(leaderboard)
 
         //add the leaderboard heading
-        this.components.push(new PrefabTextLarge("Leaderboard", (canvas.width / 2) - 275, (canvas.height / 2) - 300, "Leaderboard"))
+        this.addComponent(new PrefabTextLarge("Leaderboard", (canvas.width / 2) - 275, (canvas.height / 2) - 300, "Leaderboard"))
 
 
         //loop through all leaderboard entires and put them into prefab text objects
         for (let i = 0; i < leaderboard.length; i++) {
             let offset = (canvas.height / 12) * i
-            this.components.push(new PrefabTextSmall("LeaderboardEntry", (canvas.width / 2) - 275, (canvas.height / 3) + offset, i + 1 + ".   " + leaderboard[i].player + " . . . . . . . . . . " + leaderboard[i].score))
+            this.addComponent(new PrefabTextSmall("LeaderboardEntry", (canvas.width / 2) - 275, (canvas.height / 3) + offset, i + 1 + ".   " + leaderboard[i].player + " . . . . . . . . . . " + leaderboard[i].score))
         }
 
 

@@ -6,8 +6,8 @@ class BulletGameObject extends GameObject {
     constructor(x, y, w, h, velocityX, velocityY) {
         super()
 
-        this.components.push(new BulletUpdateComponent(this, x, y, w, h, velocityX, velocityY))
-        this.components.push(new BulletDrawComponent(this))
+        this.addComponent(new BulletUpdateComponent(this, x, y, w, h, velocityX, velocityY))
+        this.addComponent(new BulletDrawComponent(this))
     }
 
     update() {

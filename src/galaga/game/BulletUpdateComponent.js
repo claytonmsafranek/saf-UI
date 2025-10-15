@@ -3,6 +3,8 @@ import Constants from "../game/Constants.js"
 import Time from "../engine/Time.js"
 import Game from "../engine/Game.js"
 import Collisions from "../engine/Collisions.js"
+import PlayerGameObject from "./PlayerGameObject.js"
+import PlayerUpdateComponent from "./PlayerUpdateComponent.js"
 
 class BulletUpdateComponent extends Component {
     constructor(parent, x, y, w, h, velocityX, velocityY) {
@@ -34,8 +36,8 @@ class BulletUpdateComponent extends Component {
         }
 
         //check if bullet hit a player
-        let player = Game.findByTypeOne("PlayerGameObject")
-        let playerComp = player.getComponent("PlayerUpdateComponent")
+        let player = Game.findByTypeOne(PlayerGameObject)
+        let playerComp = player.getComponent(PlayerUpdateComponent)
         //let bulletComp = bullet.getComponent("BulletUpdateComponent")
 
         if (Collisions.inCollision(playerComp, this)) {            

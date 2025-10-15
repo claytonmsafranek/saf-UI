@@ -12,9 +12,9 @@ class StartGameObject extends GameObject {
     }
 
     start() {
-        this.components.push(new Text(this, this.x, this.y, "Starting Game ...", "50px sans"))
-        this.components.push(new TextDraw(this, "white", "white"))
-        this.components.push(new StartUpdateComponent(this))
+        this.addComponent(new Text(this, this.x, this.y, "Starting Game ...", "50px sans"))
+        this.addComponent(new TextDraw(this, "white", "white"))
+        this.addComponent(new StartUpdateComponent(this))
     }
 
 }

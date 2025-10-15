@@ -3,6 +3,8 @@ import Time from "../engine/Time.js"
 import Constants from "./Constants.js"
 import Collisions from "../engine/Collisions.js"
 import Game from "../engine/Game.js"
+import PlayerGameObject from "./PlayerGameObject.js"
+import PlayerUpdateComponent from "./PlayerUpdateComponent.js"
 
 
 
@@ -30,8 +32,8 @@ class EnemyUpdateComponent extends Component {
 
 
         //check if enemy hit player
-        let player = Game.findByTypeOne("PlayerGameObject")
-        let playerComp = player.getComponent("PlayerUpdateComponent")
+        let player = Game.findByTypeOne(PlayerGameObject)
+        let playerComp = player.getComponent(PlayerUpdateComponent)
         if (Collisions.inCollision(playerComp, this)){
             //remove the enemy all together to indicate it collided
             //this.parent.markForDelete = true

@@ -12,16 +12,16 @@ class Game {
     }
 
     static findByType(type) {
-        return Game.scene().gameObjects.filter(go => go.constructor.name == type)
+        return Game.scene().gameObjects.filter(go => go instanceof type)
     }
 
     static findByTypeOne(type) {
-        return Game.scene().gameObjects.find(go=>go.constructor.name == type)
+        return Game.scene().gameObjects.find(go=>go instanceof type)
     }
 
     static findInOtherScene(type, sceneNum){
         let scene = Game.getSpecificScene(sceneNum)
-        let found = scene.gameObjects.find(go=>go.constructor.name == type)
+        let found = scene.gameObjects.find(go=>go instanceof type)
         return found
     }
 

@@ -1,5 +1,4 @@
 import Component from "../engine/Component.js"
-import Time from "../engine/Time.js"
 import BulletUpdateComponent from "../game/BulletUpdateComponent.js"
 
 class BulletDrawComponent extends Component {
@@ -8,7 +7,7 @@ class BulletDrawComponent extends Component {
     }
 
     draw(ctx) {
-        let updateComponent = this.parent.components.find(c => c instanceof BulletUpdateComponent)
+        let updateComponent = this.parent.getComponent(BulletUpdateComponent)
 
         ctx.fillStyle = "blue"
         ctx.strokeStyle = "blue"
